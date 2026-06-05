@@ -1,0 +1,26 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+
+# JavaScript / TypeScript
+**/node_modules/
+**/dist/
+**/.vite/
+**/coverage/
+npm-debug.log*
+
+# Python
+**/venv/
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+
+# Bot session/auth data
+bot-pdf-baileys/auth/

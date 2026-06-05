@@ -1,0 +1,1172 @@
+INFO:     Started server process [16232]
+INFO:     Waiting for application startup.
+2026-05-25 01:32:35,313 INFO dashpro — DashPro Business API starting...
+2026-05-25 01:32:35,328 INFO dashpro — Database tables ready.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-05-25 01:42:47,624 INFO dashpro — OPTIONS /auth/login status=200 duration=0.36ms
+2026-05-25 01:42:47,955 INFO dashpro — POST /auth/login status=200 duration=328.06ms
+2026-05-25 01:42:47,978 INFO dashpro — OPTIONS /dashboard status=200 duration=0.52ms
+2026-05-25 01:42:47,981 INFO dashpro — OPTIONS /dashboard status=200 duration=0.59ms
+2026-05-25 01:42:48,052 INFO dashpro — GET /dashboard status=200 duration=67.33ms
+2026-05-25 01:42:48,092 INFO dashpro — GET /dashboard status=200 duration=37.73ms
+2026-05-25 01:42:54,454 INFO dashpro — GET /health status=200 duration=0.46ms
+2026-05-25 01:42:54,793 INFO dashpro — POST /auth/login status=200 duration=255.66ms
+2026-05-25 01:42:57,543 INFO dashpro — OPTIONS /clients status=200 duration=0.43ms
+2026-05-25 01:42:57,549 INFO dashpro — OPTIONS /clients status=200 duration=0.7ms
+2026-05-25 01:42:57,578 INFO dashpro — GET /clients status=200 duration=24.57ms
+2026-05-25 01:42:57,603 INFO dashpro — GET /clients status=200 duration=21.84ms
+2026-05-25 01:42:58,356 INFO dashpro — OPTIONS /products status=200 duration=0.3ms
+2026-05-25 01:42:58,363 INFO dashpro — OPTIONS /products/categories status=200 duration=1.88ms
+2026-05-25 01:42:58,364 INFO dashpro — OPTIONS /products status=200 duration=2.44ms
+2026-05-25 01:42:58,367 INFO dashpro — OPTIONS /products/categories status=200 duration=4.33ms
+2026-05-25 01:42:58,392 INFO dashpro — GET /products/categories status=200 duration=22.15ms
+2026-05-25 01:42:58,397 INFO dashpro — GET /products status=200 duration=27.9ms
+2026-05-25 01:42:58,408 INFO dashpro — GET /products/categories status=200 duration=13.45ms
+2026-05-25 01:42:58,414 INFO dashpro — GET /products status=200 duration=14.7ms
+2026-05-25 01:42:59,086 INFO dashpro — OPTIONS /movements status=200 duration=0.33ms
+2026-05-25 01:42:59,091 INFO dashpro — OPTIONS /products status=200 duration=2.88ms
+2026-05-25 01:42:59,094 INFO dashpro — OPTIONS /movements status=200 duration=4.05ms
+2026-05-25 01:42:59,097 INFO dashpro — OPTIONS /products status=200 duration=6.4ms
+2026-05-25 01:42:59,132 INFO dashpro — GET /products status=200 duration=31.96ms
+2026-05-25 01:42:59,134 INFO dashpro — GET /movements status=200 duration=41.09ms
+2026-05-25 01:42:59,168 INFO dashpro — GET /movements status=200 duration=26.22ms
+2026-05-25 01:42:59,169 INFO dashpro — GET /products status=200 duration=31.84ms
+2026-05-25 01:42:59,583 INFO dashpro — OPTIONS /orders status=200 duration=1.7ms
+2026-05-25 01:42:59,589 INFO dashpro — OPTIONS /orders status=200 duration=6.21ms
+2026-05-25 01:42:59,616 INFO dashpro — GET /orders status=200 duration=23.83ms
+2026-05-25 01:42:59,636 INFO dashpro — GET /orders status=200 duration=15.87ms
+2026-05-25 01:42:59,933 INFO dashpro — OPTIONS /companies/me/report-permissions status=200 duration=0.53ms
+2026-05-25 01:42:59,941 INFO dashpro — OPTIONS /companies/me/report-permissions status=200 duration=1.83ms
+2026-05-25 01:42:59,964 INFO dashpro — GET /companies/me/report-permissions status=200 duration=20.47ms
+2026-05-25 01:42:59,977 INFO dashpro — GET /companies/me/report-permissions status=200 duration=10.44ms
+2026-05-25 01:43:00,433 INFO dashpro — GET /dashboard status=200 duration=59.14ms
+2026-05-25 01:43:00,491 INFO dashpro — GET /dashboard status=200 duration=52.11ms
+2026-05-25 01:43:01,889 INFO dashpro — GET /dashboard status=200 duration=65.88ms
+2026-05-25 01:43:01,947 INFO dashpro — GET /dashboard status=200 duration=53.96ms
+2026-05-25 01:44:32,025 INFO dashpro — GET /clients status=200 duration=20.9ms
+2026-05-25 01:44:32,041 INFO dashpro — GET /clients status=200 duration=10.66ms
+2026-05-25 01:44:35,028 INFO dashpro — GET /products/categories status=200 duration=16.86ms
+2026-05-25 01:44:35,036 INFO dashpro — GET /products status=200 duration=33.85ms
+2026-05-25 01:44:35,053 INFO dashpro — GET /products/categories status=200 duration=19.94ms
+2026-05-25 01:44:35,057 INFO dashpro — GET /products status=200 duration=17.67ms
+2026-05-25 01:44:35,919 INFO dashpro — GET /clients status=200 duration=14.73ms
+2026-05-25 01:44:35,949 INFO dashpro — GET /clients status=200 duration=23.33ms
+2026-05-25 01:45:07,887 INFO dashpro — GET /products/categories status=200 duration=10.37ms
+2026-05-25 01:45:07,891 INFO dashpro — GET /products status=200 duration=14.48ms
+2026-05-25 01:45:07,906 INFO dashpro — GET /products/categories status=200 duration=12.68ms
+2026-05-25 01:45:07,909 INFO dashpro — GET /products status=200 duration=14.62ms
+2026-05-25 01:45:25,897 INFO dashpro — POST /auth/login status=200 duration=243.37ms
+2026-05-25 01:45:26,050 INFO dashpro — GET /dashboard status=200 duration=131.18ms
+2026-05-25 01:46:10,437 INFO dashpro — GET /dashboard status=200 duration=30.93ms
+2026-05-25 01:46:10,474 INFO dashpro — GET /dashboard status=200 duration=32.42ms
+2026-05-25 01:46:11,494 INFO dashpro — OPTIONS /auth/me status=200 duration=0.45ms
+2026-05-25 01:46:11,499 INFO dashpro — OPTIONS /auth/me status=200 duration=0.64ms
+2026-05-25 01:46:11,533 INFO dashpro — GET /auth/me status=200 duration=29.48ms
+2026-05-25 01:46:11,556 INFO dashpro — GET /auth/me status=200 duration=20.19ms
+2026-05-25 01:46:11,694 INFO dashpro — GET /dashboard status=200 duration=49.35ms
+2026-05-25 01:46:11,743 INFO dashpro — GET /dashboard status=200 duration=43.35ms
+2026-05-25 01:47:14,798 INFO dashpro — GET /auth/me status=200 duration=11.67ms
+2026-05-25 01:47:14,813 INFO dashpro — GET /auth/me status=200 duration=9.9ms
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+  |     yield
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 190, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 799, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 411, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         self.scope, self.receive, self.send
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 189, in __call__
+    |     with collapse_excgroups():
+    |          ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\supor\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 93, in collapse_excgroups
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\app\middleware\logging.py", line 12, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 165, in call_next
+    |     raise app_exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 151, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    |     await self.simple_response(scope, receive, send, request_headers=headers)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 148, in simple_response
+    |     await self.app(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 776, in app
+    |     await route.handle(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 297, in handle
+    |     await self.app(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 77, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 72, in app
+    |     response = await func(request)
+    |                ^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 278, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         dependant=dependant, values=values, is_coroutine=is_coroutine
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\app\routers\dashboard.py", line 112, in get_dashboard
+    |     sales_day_result = await db.execute(
+    |                        ^^^^^^^^^^^^^^^^^
+    |     ...<12 lines>...
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 448, in execute
+    |     result = await greenlet_spawn(
+    |              ^^^^^^^^^^^^^^^^^^^^^
+    |     ...<6 lines>...
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    |     result = context.switch(value)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2372, in execute
+    |     return self._execute_internal(
+    |            ~~~~~~~~~~~~~~~~~~~~~~^
+    |         statement,
+    |         ^^^^^^^^^^
+    |     ...<4 lines>...
+    |         _add_event=_add_event,
+    |         ^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2270, in _execute_internal
+    |     result: Result[Any] = compile_state_cls.orm_execute_statement(
+    |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+    |         self,
+    |         ^^^^^
+    |     ...<4 lines>...
+    |         conn,
+    |         ^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 309, in orm_execute_statement
+    |     return cls.orm_setup_cursor_result(
+    |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+    |         session,
+    |         ^^^^^^^^
+    |     ...<4 lines>...
+    |         result,
+    |         ^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 616, in orm_setup_cursor_result
+    |     return loading.instances(result, querycontext)
+    |            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 262, in instances
+    |     _prebuffered = list(chunks(None))
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    |     fetch = cursor._raw_all_rows()
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 553, in _raw_all_rows
+    |     return [make_row(row) for row in rows]
+    |             ~~~~~~~~^^^^^
+    |   File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+    |   File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+    |   File "lib/sqlalchemy/cyextension/processors.pyx", line 51, in sqlalchemy.cyextension.processors.str_to_date
+    | TypeError: fromisoformat: argument must be str
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 189, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\supor\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 93, in collapse_excgroups
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\app\middleware\logging.py", line 12, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 165, in call_next
+    raise app_exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dependant=dependant, values=values, is_coroutine=is_coroutine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\app\routers\dashboard.py", line 112, in get_dashboard
+    sales_day_result = await db.execute(
+                       ^^^^^^^^^^^^^^^^^
+    ...<12 lines>...
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 448, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2372, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2270, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 309, in orm_execute_statement
+    return cls.orm_setup_cursor_result(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        session,
+        ^^^^^^^^
+    ...<4 lines>...
+        result,
+        ^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 616, in orm_setup_cursor_result
+    return loading.instances(result, querycontext)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 262, in instances
+    _prebuffered = list(chunks(None))
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 553, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "lib/sqlalchemy/cyextension/processors.pyx", line 51, in sqlalchemy.cyextension.processors.str_to_date
+TypeError: fromisoformat: argument must be str
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+  |     yield
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 190, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 799, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 411, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         self.scope, self.receive, self.send
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 189, in __call__
+    |     with collapse_excgroups():
+    |          ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\supor\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 93, in collapse_excgroups
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\app\middleware\logging.py", line 12, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 165, in call_next
+    |     raise app_exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 151, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    |     await self.simple_response(scope, receive, send, request_headers=headers)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 148, in simple_response
+    |     await self.app(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 776, in app
+    |     await route.handle(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 297, in handle
+    |     await self.app(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 77, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 72, in app
+    |     response = await func(request)
+    |                ^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 278, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         dependant=dependant, values=values, is_coroutine=is_coroutine
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\app\routers\dashboard.py", line 112, in get_dashboard
+    |     sales_day_result = await db.execute(
+    |                        ^^^^^^^^^^^^^^^^^
+    |     ...<12 lines>...
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 448, in execute
+    |     result = await greenlet_spawn(
+    |              ^^^^^^^^^^^^^^^^^^^^^
+    |     ...<6 lines>...
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    |     result = context.switch(value)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2372, in execute
+    |     return self._execute_internal(
+    |            ~~~~~~~~~~~~~~~~~~~~~~^
+    |         statement,
+    |         ^^^^^^^^^^
+    |     ...<4 lines>...
+    |         _add_event=_add_event,
+    |         ^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2270, in _execute_internal
+    |     result: Result[Any] = compile_state_cls.orm_execute_statement(
+    |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+    |         self,
+    |         ^^^^^
+    |     ...<4 lines>...
+    |         conn,
+    |         ^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 309, in orm_execute_statement
+    |     return cls.orm_setup_cursor_result(
+    |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+    |         session,
+    |         ^^^^^^^^
+    |     ...<4 lines>...
+    |         result,
+    |         ^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 616, in orm_setup_cursor_result
+    |     return loading.instances(result, querycontext)
+    |            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 262, in instances
+    |     _prebuffered = list(chunks(None))
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    |     fetch = cursor._raw_all_rows()
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 553, in _raw_all_rows
+    |     return [make_row(row) for row in rows]
+    |             ~~~~~~~~^^^^^
+    |   File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+    |   File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+    |   File "lib/sqlalchemy/cyextension/processors.pyx", line 51, in sqlalchemy.cyextension.processors.str_to_date
+    | TypeError: fromisoformat: argument must be str
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 189, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\supor\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 93, in collapse_excgroups
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\app\middleware\logging.py", line 12, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 165, in call_next
+    raise app_exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dependant=dependant, values=values, is_coroutine=is_coroutine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\app\routers\dashboard.py", line 112, in get_dashboard
+    sales_day_result = await db.execute(
+                       ^^^^^^^^^^^^^^^^^
+    ...<12 lines>...
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 448, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2372, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2270, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 309, in orm_execute_statement
+    return cls.orm_setup_cursor_result(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        session,
+        ^^^^^^^^
+    ...<4 lines>...
+        result,
+        ^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 616, in orm_setup_cursor_result
+    return loading.instances(result, querycontext)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 262, in instances
+    _prebuffered = list(chunks(None))
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 553, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "lib/sqlalchemy/cyextension/processors.pyx", line 51, in sqlalchemy.cyextension.processors.str_to_date
+TypeError: fromisoformat: argument must be str
+2026-05-25 01:47:20,734 INFO dashpro — POST /auth/login status=200 duration=285.66ms
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+  |     yield
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 190, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 799, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 411, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         self.scope, self.receive, self.send
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 189, in __call__
+    |     with collapse_excgroups():
+    |          ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\supor\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 93, in collapse_excgroups
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\app\middleware\logging.py", line 12, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 165, in call_next
+    |     raise app_exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 151, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 776, in app
+    |     await route.handle(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 297, in handle
+    |     await self.app(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 77, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 72, in app
+    |     response = await func(request)
+    |                ^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 278, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         dependant=dependant, values=values, is_coroutine=is_coroutine
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\app\routers\dashboard.py", line 112, in get_dashboard
+    |     sales_day_result = await db.execute(
+    |                        ^^^^^^^^^^^^^^^^^
+    |     ...<12 lines>...
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 448, in execute
+    |     result = await greenlet_spawn(
+    |              ^^^^^^^^^^^^^^^^^^^^^
+    |     ...<6 lines>...
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    |     result = context.switch(value)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2372, in execute
+    |     return self._execute_internal(
+    |            ~~~~~~~~~~~~~~~~~~~~~~^
+    |         statement,
+    |         ^^^^^^^^^^
+    |     ...<4 lines>...
+    |         _add_event=_add_event,
+    |         ^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2270, in _execute_internal
+    |     result: Result[Any] = compile_state_cls.orm_execute_statement(
+    |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+    |         self,
+    |         ^^^^^
+    |     ...<4 lines>...
+    |         conn,
+    |         ^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 309, in orm_execute_statement
+    |     return cls.orm_setup_cursor_result(
+    |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+    |         session,
+    |         ^^^^^^^^
+    |     ...<4 lines>...
+    |         result,
+    |         ^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 616, in orm_setup_cursor_result
+    |     return loading.instances(result, querycontext)
+    |            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 262, in instances
+    |     _prebuffered = list(chunks(None))
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    |     fetch = cursor._raw_all_rows()
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 553, in _raw_all_rows
+    |     return [make_row(row) for row in rows]
+    |             ~~~~~~~~^^^^^
+    |   File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+    |   File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+    |   File "lib/sqlalchemy/cyextension/processors.pyx", line 51, in sqlalchemy.cyextension.processors.str_to_date
+    | TypeError: fromisoformat: argument must be str
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 189, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\supor\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 93, in collapse_excgroups
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\app\middleware\logging.py", line 12, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 165, in call_next
+    raise app_exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dependant=dependant, values=values, is_coroutine=is_coroutine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\app\routers\dashboard.py", line 112, in get_dashboard
+    sales_day_result = await db.execute(
+                       ^^^^^^^^^^^^^^^^^
+    ...<12 lines>...
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 448, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2372, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2270, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 309, in orm_execute_statement
+    return cls.orm_setup_cursor_result(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        session,
+        ^^^^^^^^
+    ...<4 lines>...
+        result,
+        ^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 616, in orm_setup_cursor_result
+    return loading.instances(result, querycontext)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 262, in instances
+    _prebuffered = list(chunks(None))
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 553, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "lib/sqlalchemy/cyextension/processors.pyx", line 51, in sqlalchemy.cyextension.processors.str_to_date
+TypeError: fromisoformat: argument must be str
+2026-05-25 01:47:32,434 INFO dashpro — POST /auth/login status=200 duration=282.07ms
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+  |     yield
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 190, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 799, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 411, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         self.scope, self.receive, self.send
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 189, in __call__
+    |     with collapse_excgroups():
+    |          ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\supor\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 93, in collapse_excgroups
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\app\middleware\logging.py", line 12, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 165, in call_next
+    |     raise app_exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 151, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 776, in app
+    |     await route.handle(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 297, in handle
+    |     await self.app(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 77, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    |     raise exc
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 72, in app
+    |     response = await func(request)
+    |                ^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 278, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         dependant=dependant, values=values, is_coroutine=is_coroutine
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\app\routers\dashboard.py", line 112, in get_dashboard
+    |     sales_day_result = await db.execute(
+    |                        ^^^^^^^^^^^^^^^^^
+    |     ...<12 lines>...
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 448, in execute
+    |     result = await greenlet_spawn(
+    |              ^^^^^^^^^^^^^^^^^^^^^
+    |     ...<6 lines>...
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    |     result = context.switch(value)
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2372, in execute
+    |     return self._execute_internal(
+    |            ~~~~~~~~~~~~~~~~~~~~~~^
+    |         statement,
+    |         ^^^^^^^^^^
+    |     ...<4 lines>...
+    |         _add_event=_add_event,
+    |         ^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2270, in _execute_internal
+    |     result: Result[Any] = compile_state_cls.orm_execute_statement(
+    |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+    |         self,
+    |         ^^^^^
+    |     ...<4 lines>...
+    |         conn,
+    |         ^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 309, in orm_execute_statement
+    |     return cls.orm_setup_cursor_result(
+    |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+    |         session,
+    |         ^^^^^^^^
+    |     ...<4 lines>...
+    |         result,
+    |         ^^^^^^^
+    |     )
+    |     ^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 616, in orm_setup_cursor_result
+    |     return loading.instances(result, querycontext)
+    |            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 262, in instances
+    |     _prebuffered = list(chunks(None))
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    |     fetch = cursor._raw_all_rows()
+    |   File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 553, in _raw_all_rows
+    |     return [make_row(row) for row in rows]
+    |             ~~~~~~~~^^^^^
+    |   File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+    |   File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+    |   File "lib/sqlalchemy/cyextension/processors.pyx", line 51, in sqlalchemy.cyextension.processors.str_to_date
+    | TypeError: fromisoformat: argument must be str
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 189, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\supor\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_utils.py", line 93, in collapse_excgroups
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\app\middleware\logging.py", line 12, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 165, in call_next
+    raise app_exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\starlette\routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dependant=dependant, values=values, is_coroutine=is_coroutine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\app\routers\dashboard.py", line 112, in get_dashboard
+    sales_day_result = await db.execute(
+                       ^^^^^^^^^^^^^^^^^
+    ...<12 lines>...
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 448, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2372, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2270, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 309, in orm_execute_statement
+    return cls.orm_setup_cursor_result(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        session,
+        ^^^^^^^^
+    ...<4 lines>...
+        result,
+        ^^^^^^^
+    )
+    ^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 616, in orm_setup_cursor_result
+    return loading.instances(result, querycontext)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 262, in instances
+    _prebuffered = list(chunks(None))
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "D:\Users\supor\Desktop\DashPro-main\backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 553, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "lib/sqlalchemy/cyextension/processors.pyx", line 51, in sqlalchemy.cyextension.processors.str_to_date
+TypeError: fromisoformat: argument must be str
