@@ -24,6 +24,7 @@ class CompanyRamo(str, enum.Enum):
     comercio = "comercio"
     construcao = "construcao"
     servicos = "servicos"
+    automoveis = "automoveis"
 
 
 class Company(Base):

@@ -13,6 +13,7 @@ from app.models.stock import StockMovement
 from app.models.product import Product
 from app.models.client import Client
 from app.models.user import User
+from app.models.financeiro import LancamentoFinanceiro
 from app.schemas.order import OrderCreate, OrderUpdate, OrderResponse, OrderListResponse, OrderItemResponse
 from app.dependencies import get_current_active_user, require_company_admin
 from app.services.whatsapp import send_order_delivered_notification
@@ -108,6 +109,14 @@ async def create_order(
         product = product_result.scalar_one_or_none()
         if not product:
             raise HTTPException(status_code=404, detail=f"Produto {item_data.product_id} não encontrado")
+
+        available = Decimal(str(product.current_stock)) - Decimal(str(product.reserved_stock or 0))
+        if available < item_data.quantity:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Estoque insuficiente para '{product.name}'. Disponível: {available} {product.unit}",
+            )
+        product.reserved_stock = Decimal(str(product.reserved_stock or 0)) + item_data.quantity
 
         item_total = (item_data.quantity * item_data.unit_price) - item_data.discount
         subtotal += item_total
@@ -212,6 +221,10 @@ async def update_order_status(
                             detail=f"Estoque insuficiente para produto {product.name}. Disponível: {qty_before}",
                         )
                     product.current_stock = new_stock
+                    product.reserved_stock = max(
+                        Decimal("0"),
+                        Decimal(str(product.reserved_stock or 0)) - item.quantity,
+                    )
                     movement = StockMovement(
                         company_id=current_user.company_id,
                         product_id=item.product_id,
@@ -226,9 +239,33 @@ async def update_order_status(
                     )
                     db.add(movement)
 
+            lancamento = LancamentoFinanceiro(
+                company_id=order.company_id,
+                tipo="receita",
+                categoria="outros",
+                description=f"Venda - {order.order_number}",
+                value=order.total,
+                status="pago",
+            )
+            db.add(lancamento)
+
         elif payload.status == OrderStatus.cancelado:
             order.cancelled_at = datetime.utcnow()
             order.cancel_reason = payload.cancel_reason
+            if previous_status != OrderStatus.entregue:
+                for item in order.items:
+                    product_result = await db.execute(
+                        select(Product).where(
+                            Product.id == item.product_id,
+                            Product.company_id == current_user.company_id,
+                        )
+                    )
+                    product = product_result.scalar_one_or_none()
+                    if product:
+                        product.reserved_stock = max(
+                            Decimal("0"),
+                            Decimal(str(product.reserved_stock or 0)) - item.quantity,
+                        )
 
     if payload.notes is not None:
         order.notes = payload.notes

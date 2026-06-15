@@ -13,6 +13,8 @@ from app.models.product import Product
 from app.models.order import Order, OrderItem, OrderStatus
 from app.models.stock import StockMovement
 from app.models.company import Company
+from app.models.veiculo import Veiculo
+from app.models.gasto_auto import GastoAuto
 from app.schemas.dashboard import (
     DashboardResponse, KPIResponse, TopProduct,
     TopClient, SalesByDay, StockByCategory, SuperAdminDashboard,
@@ -221,6 +223,146 @@ async def get_dashboard(
         top_clients=top_clients,
         stock_by_category=stock_by_category,
     )
+
+
+@router.get("/automoveis")
+async def get_automoveis_dashboard(
+    current_user: User = Depends(get_current_active_user),
+    db: AsyncSession = Depends(get_db),
+):
+    company_id = current_user.company_id
+    today = date.today()
+    first_of_month = today.replace(day=1)
+    last_month_end = first_of_month - timedelta(days=1)
+    last_month_start = last_month_end.replace(day=1)
+    thirty_ago = today - timedelta(days=29)
+
+    def _sum_gastos(tipo, date_from, date_to=None):
+        q = select(func.coalesce(func.sum(GastoAuto.valor), 0)).where(
+            GastoAuto.company_id == company_id,
+            GastoAuto.tipo == tipo,
+            GastoAuto.data >= date_from,
+        )
+        if date_to:
+            q = q.where(GastoAuto.data <= date_to)
+        return q
+
+    # ── Estoque ──
+    disponiveis = (await db.execute(
+        select(func.count(Veiculo.id)).where(
+            Veiculo.company_id == company_id, Veiculo.is_active == True, Veiculo.status == "disponivel"
+        )
+    )).scalar() or 0
+
+    reservados = (await db.execute(
+        select(func.count(Veiculo.id)).where(
+            Veiculo.company_id == company_id, Veiculo.is_active == True, Veiculo.status == "reservado"
+        )
+    )).scalar() or 0
+
+    total_vendidos = (await db.execute(
+        select(func.count(Veiculo.id)).where(
+            Veiculo.company_id == company_id, Veiculo.status == "vendido"
+        )
+    )).scalar() or 0
+
+    # ── Financeiro mês atual ──
+    receita_mes    = Decimal(str((await db.execute(_sum_gastos("entrada", first_of_month))).scalar() or 0))
+    gastos_mes     = Decimal(str((await db.execute(_sum_gastos("saida",   first_of_month))).scalar() or 0))
+    receita_ant    = Decimal(str((await db.execute(_sum_gastos("entrada", last_month_start, last_month_end))).scalar() or 0))
+    gastos_ant     = Decimal(str((await db.execute(_sum_gastos("saida",   last_month_start, last_month_end))).scalar() or 0))
+
+    saldo_mes = float(receita_mes) - float(gastos_mes)
+    saldo_ant = float(receita_ant) - float(gastos_ant)
+
+    def _growth(current, previous):
+        if previous == 0:
+            return None
+        return round(((current - previous) / previous) * 100, 1)
+
+    # ── Movimentações por dia (últimos 30 dias) ──
+    mov_result = await db.execute(
+        select(GastoAuto.data, GastoAuto.tipo, func.sum(GastoAuto.valor).label("total"))
+        .where(GastoAuto.company_id == company_id, GastoAuto.data >= thirty_ago)
+        .group_by(GastoAuto.data, GastoAuto.tipo)
+        .order_by(GastoAuto.data)
+    )
+    raw_mov = {}
+    for r in mov_result.all():
+        key = str(r.data)
+        if key not in raw_mov:
+            raw_mov[key] = {"entrada": 0.0, "saida": 0.0}
+        raw_mov[key][r.tipo] = float(r.total or 0)
+
+    mov_by_day = []
+    for i in range(29, -1, -1):
+        d = today - timedelta(days=i)
+        row = raw_mov.get(d.isoformat(), {"entrada": 0.0, "saida": 0.0})
+        mov_by_day.append({"date": d.strftime("%d/%m"), "entrada": row["entrada"], "saida": row["saida"]})
+
+    # ── Gastos por categoria (mês atual) ──
+    cat_result = await db.execute(
+        select(GastoAuto.categoria, func.sum(GastoAuto.valor).label("total"))
+        .where(GastoAuto.company_id == company_id, GastoAuto.tipo == "saida", GastoAuto.data >= first_of_month)
+        .group_by(GastoAuto.categoria)
+        .order_by(func.sum(GastoAuto.valor).desc())
+    )
+    gastos_por_categoria = [{"categoria": r.categoria, "total": float(r.total)} for r in cat_result.all()]
+
+    # ── Últimos veículos ──
+    veic_result = await db.execute(
+        select(Veiculo)
+        .where(Veiculo.company_id == company_id, Veiculo.is_active == True)
+        .order_by(Veiculo.created_at.desc())
+        .limit(6)
+    )
+    recent_veiculos = [
+        {
+            "id": str(v.id),
+            "marca": v.marca,
+            "modelo": v.modelo,
+            "ano": f"{v.ano_fabricacao}/{v.ano_modelo}",
+            "preco_venda": float(v.preco_venda),
+            "status": v.status,
+            "foto": (v.fotos or [None])[0],
+        }
+        for v in veic_result.scalars().all()
+    ]
+
+    # ── Últimas movimentações ──
+    mov_rec_result = await db.execute(
+        select(GastoAuto)
+        .where(GastoAuto.company_id == company_id)
+        .order_by(GastoAuto.created_at.desc())
+        .limit(6)
+    )
+    recent_mov = [
+        {
+            "id": str(g.id),
+            "tipo": g.tipo,
+            "categoria": g.categoria,
+            "descricao": g.descricao,
+            "valor": float(g.valor),
+            "data": str(g.data),
+        }
+        for g in mov_rec_result.scalars().all()
+    ]
+
+    return {
+        "estoque": {"disponiveis": disponiveis, "reservados": reservados, "vendidos": total_vendidos},
+        "financeiro": {
+            "receita_mes": float(receita_mes),
+            "gastos_mes": float(gastos_mes),
+            "saldo_mes": saldo_mes,
+            "receita_crescimento": _growth(float(receita_mes), float(receita_ant)),
+            "gastos_crescimento": _growth(float(gastos_mes), float(gastos_ant)),
+            "saldo_crescimento": _growth(saldo_mes, saldo_ant),
+        },
+        "mov_by_day": mov_by_day,
+        "gastos_por_categoria": gastos_por_categoria,
+        "recent_veiculos": recent_veiculos,
+        "recent_mov": recent_mov,
+    }
 
 
 @router.get("/super-admin", response_model=SuperAdminDashboard)

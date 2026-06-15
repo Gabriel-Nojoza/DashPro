@@ -10,6 +10,7 @@ import {
   Users, ShoppingCart, TrendingUp, AlertTriangle,
   Package, ArrowUpRight, ArrowDownRight,
   Building2, UserCheck, Clock, CheckCircle,
+  Car, DollarSign, TrendingDown, Wallet,
 } from 'lucide-react'
 
 const fmt = (v) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v)
@@ -255,12 +256,219 @@ function SuperAdminDashboard() {
   )
 }
 
+// ─── Automoveis Dashboard ─────────────────────────────────────────────────────
+
+const CATEGORIA_LABELS = {
+  mecanico: 'Mecânico', pecas: 'Peças', pintura: 'Pintura',
+  documentacao: 'Documentação', combustivel: 'Combustível',
+  seguro: 'Seguro', limpeza: 'Limpeza', compra: 'Compra de Veículo',
+  venda: 'Venda', servico: 'Serviço', outros: 'Outros',
+}
+
+const STATUS_VEI = {
+  disponivel: { label: 'Disponível', cls: 'bg-emerald-100 text-emerald-700' },
+  reservado:  { label: 'Reservado',  cls: 'bg-amber-100 text-amber-700' },
+  vendido:    { label: 'Vendido',    cls: 'bg-gray-100 text-gray-500' },
+}
+
+function AutomoveisDashboard() {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    dashboardAPI.getAutomoveis()
+      .then(r => setData(r.data))
+      .catch(() => {})
+      .finally(() => setLoading(false))
+  }, [])
+
+  if (loading) {
+    return (
+      <Layout title="Dashboard">
+        <div className="grid grid-cols-2 xl:grid-cols-3 gap-5 mb-6">
+          {[...Array(6)].map((_, i) => <div key={i} className="card h-28 animate-pulse bg-gray-100" />)}
+        </div>
+      </Layout>
+    )
+  }
+
+  const est = data?.estoque || {}
+  const fin = data?.financeiro || {}
+
+  const saldoPositivo = fin.saldo_mes >= 0
+
+  return (
+    <Layout title="Dashboard">
+      {/* ── KPIs ── */}
+      <div className="grid grid-cols-2 xl:grid-cols-3 gap-5 mb-6">
+        <KpiCard title="Disponíveis"   value={est.disponiveis ?? 0}  sub="veículos em estoque"  icon={Car}          color="green"  />
+        <KpiCard title="Reservados"    value={est.reservados ?? 0}   sub="aguardando negociação" icon={Car}          color="orange" />
+        <KpiCard title="Vendidos"      value={est.vendidos ?? 0}     sub="total histórico"       icon={TrendingUp}   color="navy"   />
+        <KpiCard
+          title="Receita do Mês"
+          value={fmt(fin.receita_mes || 0)}
+          sub="entradas registradas"
+          icon={DollarSign}
+          trend={fin.receita_crescimento}
+          color="green"
+        />
+        <KpiCard
+          title="Gastos do Mês"
+          value={fmt(fin.gastos_mes || 0)}
+          sub="saídas registradas"
+          icon={TrendingDown}
+          trend={fin.gastos_crescimento != null ? -fin.gastos_crescimento : undefined}
+          color="red"
+        />
+        <div className={`card hover:shadow-card-hover transition-shadow border-l-4 ${saldoPositivo ? 'border-emerald-400' : 'border-red-400'}`}>
+          <div className="flex items-start justify-between">
+            <div>
+              <p className="text-xs font-semibold text-text-muted uppercase tracking-wider">Saldo do Mês</p>
+              <p className={`text-2xl font-bold mt-1 ${saldoPositivo ? 'text-emerald-600' : 'text-red-500'}`}>
+                {fmt(fin.saldo_mes || 0)}
+              </p>
+              <p className="text-xs text-text-muted mt-1">receita − gastos</p>
+            </div>
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${saldoPositivo ? 'bg-emerald-500' : 'bg-red-500'}`}>
+              <Wallet size={20} className="text-white" />
+            </div>
+          </div>
+          {fin.saldo_crescimento != null && (
+            <div className={`flex items-center gap-1 mt-3 text-xs font-medium ${fin.saldo_crescimento >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+              {fin.saldo_crescimento >= 0 ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
+              {Math.abs(fin.saldo_crescimento).toFixed(1)}% vs mês anterior
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* ── Gráfico de movimentações + Gastos por categoria ── */}
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mb-5">
+        <div className="card xl:col-span-2">
+          <h3 className="text-sm font-bold text-navy-900 mb-4">Movimentações — Últimos 30 Dias</h3>
+          <ResponsiveContainer width="100%" height={220}>
+            <AreaChart data={data?.mov_by_day || []}>
+              <defs>
+                <linearGradient id="colorEntrada" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#10B981" stopOpacity={0.2} />
+                  <stop offset="95%" stopColor="#10B981" stopOpacity={0} />
+                </linearGradient>
+                <linearGradient id="colorSaida" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#EF4444" stopOpacity={0.2} />
+                  <stop offset="95%" stopColor="#EF4444" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
+              <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#4B5563' }} tickLine={false} axisLine={false} interval={4} />
+              <YAxis tick={{ fontSize: 10, fill: '#4B5563' }} tickLine={false} axisLine={false} tickFormatter={v => `R$${(v/1000).toFixed(0)}k`} />
+              <Tooltip formatter={(v, name) => [fmt(v), name === 'entrada' ? 'Entradas' : 'Saídas']} labelFormatter={l => `Dia ${l}`} />
+              <Area type="monotone" dataKey="entrada" stroke="#10B981" strokeWidth={2} fill="url(#colorEntrada)" name="entrada" />
+              <Area type="monotone" dataKey="saida"   stroke="#EF4444" strokeWidth={2} fill="url(#colorSaida)"   name="saida"   />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="card">
+          <h3 className="text-sm font-bold text-navy-900 mb-4">Gastos por Categoria</h3>
+          {(data?.gastos_por_categoria || []).length === 0 ? (
+            <p className="text-sm text-text-muted text-center py-10">Nenhum gasto registrado</p>
+          ) : (
+            <ResponsiveContainer width="100%" height={220}>
+              <PieChart>
+                <Pie
+                  data={data.gastos_por_categoria}
+                  dataKey="total"
+                  nameKey="categoria"
+                  cx="50%" cy="50%"
+                  innerRadius={50} outerRadius={78} paddingAngle={3}
+                >
+                  {data.gastos_por_categoria.map((_, i) => (
+                    <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip formatter={(v, name) => [fmt(v), CATEGORIA_LABELS[name] || name]} />
+                <Legend
+                  iconType="circle" iconSize={7}
+                  formatter={name => CATEGORIA_LABELS[name] || name}
+                  wrapperStyle={{ fontSize: '10px' }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          )}
+        </div>
+      </div>
+
+      {/* ── Últimos veículos + Últimas movimentações ── */}
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <div className="card">
+          <h3 className="text-sm font-bold text-navy-900 mb-4">Últimos Veículos Cadastrados</h3>
+          {(data?.recent_veiculos || []).length === 0 ? (
+            <p className="text-sm text-text-muted text-center py-8">Nenhum veículo cadastrado ainda</p>
+          ) : (
+            <div className="space-y-3">
+              {data.recent_veiculos.map(v => (
+                <div key={v.id} className="flex items-center gap-3">
+                  {v.foto ? (
+                    <img src={v.foto} alt="" className="w-10 h-10 rounded-lg object-cover shrink-0 border border-gray-200" />
+                  ) : (
+                    <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center shrink-0">
+                      <Car size={16} className="text-gray-400" />
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-navy-900 truncate">{v.marca} {v.modelo}</p>
+                    <p className="text-xs text-text-muted">{v.ano}</p>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <p className="text-sm font-bold text-navy-900">{fmt(v.preco_venda)}</p>
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-semibold ${STATUS_VEI[v.status]?.cls || ''}`}>
+                      {STATUS_VEI[v.status]?.label || v.status}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="card">
+          <h3 className="text-sm font-bold text-navy-900 mb-4">Últimas Movimentações</h3>
+          {(data?.recent_mov || []).length === 0 ? (
+            <p className="text-sm text-text-muted text-center py-8">Nenhuma movimentação registrada ainda</p>
+          ) : (
+            <div className="space-y-3">
+              {data.recent_mov.map(m => (
+                <div key={m.id} className="flex items-center gap-3">
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${m.tipo === 'entrada' ? 'bg-emerald-100' : 'bg-red-100'}`}>
+                    {m.tipo === 'entrada'
+                      ? <ArrowUpRight size={16} className="text-emerald-600" />
+                      : <ArrowDownRight size={16} className="text-red-500" />
+                    }
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium text-navy-900 truncate">{m.descricao}</p>
+                    <p className="text-xs text-text-muted">{CATEGORIA_LABELS[m.categoria] || m.categoria} · {new Date(m.data).toLocaleDateString('pt-BR')}</p>
+                  </div>
+                  <p className={`text-sm font-bold shrink-0 ${m.tipo === 'entrada' ? 'text-emerald-600' : 'text-red-500'}`}>
+                    {m.tipo === 'entrada' ? '+' : '-'}{fmt(m.valor)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </Layout>
+  )
+}
+
 // ─── Company Dashboard ────────────────────────────────────────────────────────
 
 export default function Dashboard() {
-  const { isSuperAdmin } = useAuth()
+  const { isSuperAdmin, isAutomoveis } = useAuth()
 
   if (isSuperAdmin) return <SuperAdminDashboard />
+  if (isAutomoveis) return <AutomoveisDashboard />
 
   return <CompanyDashboard />
 }

@@ -9,6 +9,7 @@ from app.models.client import Client
 from app.models.user import User
 from app.schemas.client import ClientCreate, ClientUpdate, ClientResponse, ClientListResponse
 from app.dependencies import get_current_active_user, require_company_admin, get_company_id
+from app.services.plan_limits import check_client_limit
 
 router = APIRouter(prefix="/clients", tags=["Clientes"])
 
@@ -64,6 +65,8 @@ async def create_client(
 ):
     if not current_user.company_id:
         raise HTTPException(status_code=400, detail="Empresa não identificada")
+
+    await check_client_limit(current_user.company_id, db)
 
     client = Client(**payload.model_dump(), company_id=current_user.company_id)
     db.add(client)

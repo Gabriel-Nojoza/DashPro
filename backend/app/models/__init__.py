@@ -13,6 +13,8 @@ from app.models.orcamento import Orcamento, OrcamentoItem
 from app.models.compra import Requisicao, RequisicaoItem
 from app.models.financeiro import LancamentoFinanceiro
 from app.models.trabalhador import Trabalhador, Documento
+from app.models.veiculo import Veiculo
+from app.models.gasto_auto import GastoAuto
 
 __all__ = [
     "Company",
@@ -38,4 +40,6 @@ __all__ = [
     "LancamentoFinanceiro",
     "Trabalhador",
     "Documento",
+    "Veiculo",
+    "GastoAuto",
 ]

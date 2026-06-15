@@ -23,6 +23,7 @@ class UserTokenData(BaseModel):
     company_id: Optional[UUID] = None
     company_name: Optional[str] = None
     company_ramo: Optional[str] = "comercio"
+    company_features: Optional[dict] = None
 
     class Config:
         from_attributes = True

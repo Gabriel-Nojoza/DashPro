@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Users, Package, BarChart3, ShoppingCart,
   MessageSquare, Settings, LogOut, Building2,
   CreditCard, Archive, UserCheck, HardHat, ClipboardList,
-  DollarSign, Truck, FolderOpen,
+  DollarSign, Truck, FolderOpen, Car,
 } from 'lucide-react'
 
 // ─── Comércio ────────────────────────────────────────────────────────────────
@@ -17,6 +17,8 @@ const navItemsComercio = [
   { to: '/reports', icon: BarChart3, label: 'Relatórios' },
   { to: '/whatsapp', icon: MessageSquare, label: 'WhatsApp' },
 ]
+
+// navItemsAutomoveis é gerado dinamicamente no componente com base nos feature flags
 
 // ─── Construção Civil ─────────────────────────────────────────────────────────
 const navItemsConstrucao = [
@@ -31,26 +33,25 @@ const navItemsConstrucao = [
   { to: '/whatsapp', icon: MessageSquare, label: 'WhatsApp' },
 ]
 
-const adminItemsComercio = [
-  { to: '/users', icon: Users, label: 'Usuários' },
-  { to: '/minha-equipe', icon: UserCheck, label: 'Minha Equipe' },
-  { to: '/settings', icon: Settings, label: 'Configurações' },
-]
-
-const adminItemsConstrucao = [
-  { to: '/settings', icon: Settings, label: 'Configurações' },
-]
-
 const superAdminItems = [
   { to: '/admin/companies', icon: Building2, label: 'Empresas' },
   { to: '/admin/plans', icon: CreditCard, label: 'Planos' },
 ]
 
 export default function Sidebar() {
-  const { user, logout, isSuperAdmin, isCompanyAdmin, isSupervisor, isConstrucao } = useAuth()
+  const { user, logout, isSuperAdmin, isCompanyAdmin, isConstrucao, isAutomoveis, hasWhatsapp, hasRelatorios } = useAuth()
   const navigate = useNavigate()
 
-  const baseNavItems = isConstrucao ? navItemsConstrucao : navItemsComercio
+  const navItemsAutomoveis = [
+    { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { to: '/veiculos', icon: Car, label: 'Veículos' },
+    { to: '/clients', icon: Users, label: 'Clientes' },
+    { to: '/financeiro-auto', icon: DollarSign, label: 'Financeiro' },
+    ...(hasRelatorios ? [{ to: '/reports', icon: BarChart3, label: 'Relatórios' }] : []),
+    ...(hasWhatsapp ? [{ to: '/whatsapp', icon: MessageSquare, label: 'WhatsApp' }] : []),
+  ]
+
+  const baseNavItems = isConstrucao ? navItemsConstrucao : isAutomoveis ? navItemsAutomoveis : navItemsComercio
   const hiddenAdminRoutes = new Set(
     isConstrucao
       ? [] // construção não esconde nada para admin
@@ -110,26 +111,6 @@ export default function Sidebar() {
         {visibleNavItems.map((item) => (
           <NavItem key={item.to} {...item} />
         ))}
-
-        {isSupervisor && (
-          <>
-            <div className="pt-4 pb-1 px-1">
-              <p className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Minha Equipe</p>
-            </div>
-            <NavItem to="/minha-equipe" icon={UserCheck} label="Minha Equipe" />
-          </>
-        )}
-
-        {isCompanyAdmin && (
-          <>
-            <div className="pt-4 pb-1 px-1">
-              <p className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Administração</p>
-            </div>
-            {(isConstrucao ? adminItemsConstrucao : adminItemsComercio).map((item) => (
-              <NavItem key={item.to} {...item} />
-            ))}
-          </>
-        )}
 
         {isSuperAdmin && (
           <>

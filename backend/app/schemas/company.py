@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, model_validator
 from typing import Optional
 from uuid import UUID
 from datetime import datetime
@@ -24,6 +24,7 @@ class CompanyUpdate(BaseModel):
     status: Optional[str] = None
     plan: Optional[str] = None
     ramo: Optional[str] = None
+    features: Optional[dict] = None
 
 
 class CompanyResponse(BaseModel):
@@ -40,6 +41,14 @@ class CompanyResponse(BaseModel):
     ramo: str = "comercio"
     trial_ends_at: Optional[datetime] = None
     created_at: datetime
+    settings: Optional[dict] = None
+    features: Optional[dict] = None
+
+    @model_validator(mode='after')
+    def extract_features(self) -> 'CompanyResponse':
+        if self.features is None and self.settings:
+            self.features = self.settings.get('features')
+        return self
 
     class Config:
         from_attributes = True

@@ -19,6 +19,7 @@ class Product(Base):
     cost_price = Column(Numeric(10, 2), default=0)
     sale_price = Column(Numeric(10, 2), nullable=False)
     current_stock = Column(Numeric(10, 3), default=0)
+    reserved_stock = Column(Numeric(10, 3), default=0)
     is_active = Column(Boolean, default=True)
     image_url = Column(Text)
     created_at = Column(DateTime(timezone=True), server_default=func.now())

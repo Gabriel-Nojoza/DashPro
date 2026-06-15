@@ -57,8 +57,8 @@ def require_roles(*roles: str):
 
 require_super_admin = require_roles("super_admin")
 require_company_admin = require_roles("super_admin", "company_admin")
-require_supervisor_or_admin = require_roles("super_admin", "company_admin", "supervisor")
-require_any = require_roles("super_admin", "company_admin", "supervisor", "employee")
+require_supervisor_or_admin = require_roles("super_admin", "company_admin")
+require_any = require_roles("super_admin", "company_admin")
 
 
 def get_company_id(current_user: User = Depends(get_current_active_user)) -> Optional[UUID]:

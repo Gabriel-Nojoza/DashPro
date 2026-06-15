@@ -56,13 +56,16 @@ export function AuthProvider({ children }) {
 
   const isSuperAdmin = user?.role === 'super_admin'
   const isCompanyAdmin = user?.role === 'company_admin' || isSuperAdmin
-  const isSupervisor = user?.role === 'supervisor'
-  const isEmployee = !!user
   const companyRamo = user?.company_ramo || 'comercio'
   const isConstrucao = companyRamo === 'construcao'
+  const isAutomoveis = companyRamo === 'automoveis'
+
+  const features = user?.company_features || {}
+  const hasWhatsapp = !isAutomoveis || features.whatsapp === true
+  const hasRelatorios = !isAutomoveis || features.relatorios === true
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout, isSuperAdmin, isCompanyAdmin, isSupervisor, isEmployee, companyRamo, isConstrucao }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, isSuperAdmin, isCompanyAdmin, companyRamo, isConstrucao, isAutomoveis, hasWhatsapp, hasRelatorios }}>
       {!loading && children}
     </AuthContext.Provider>
   )

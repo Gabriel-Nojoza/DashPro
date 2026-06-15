@@ -26,6 +26,8 @@ from app.routers.compras import router as compras_router
 from app.routers.financeiro import router as financeiro_router
 from app.routers.trabalhadores import router as trabalhadores_router
 from app.routers.documentos import router as documentos_router
+from app.routers.veiculos import router as veiculos_router
+from app.routers.gastos_auto import router as gastos_auto_router
 
 import app.models  # noqa — ensure all models are registered
 
@@ -38,18 +40,7 @@ logger = logging.getLogger("dashpro")
 
 async def _run_migrations():
     async with engine.begin() as conn:
-        if settings.is_sqlite:
-            # SQLite: check if column exists before adding
-            result = await conn.execute(text("PRAGMA table_info(users)"))
-            columns = [row[1] for row in result.fetchall()]
-            if "supervisor_id" not in columns:
-                await conn.execute(text(
-                    "ALTER TABLE users ADD COLUMN supervisor_id TEXT REFERENCES users(id)"
-                ))
-        else:
-            await conn.execute(text(
-                "ALTER TABLE users ADD COLUMN IF NOT EXISTS supervisor_id UUID REFERENCES users(id) ON DELETE SET NULL"
-            ))
+        if not settings.is_sqlite:
             await conn.execute(text(
                 "ALTER TABLE companies ADD COLUMN IF NOT EXISTS ramo VARCHAR(50) DEFAULT 'comercio'"
             ))
@@ -58,6 +49,9 @@ async def _run_migrations():
             ))
             await conn.execute(text(
                 "ALTER TABLE documentos ADD COLUMN IF NOT EXISTS expires_at VARCHAR(20)"
+            ))
+            await conn.execute(text(
+                "ALTER TABLE veiculos ADD COLUMN IF NOT EXISTS fotos JSONB DEFAULT '[]'::jsonb"
             ))
 
 
@@ -116,6 +110,8 @@ app.include_router(compras_router)
 app.include_router(financeiro_router)
 app.include_router(trabalhadores_router)
 app.include_router(documentos_router)
+app.include_router(veiculos_router)
+app.include_router(gastos_auto_router)
 
 
 @app.get("/", tags=["Health"])

@@ -8,19 +8,16 @@ class UserCreate(BaseModel):
     name: str
     email: EmailStr
     password: str
-    role: str = "employee"
+    role: str = "company_admin"
     company_id: Optional[UUID] = None
-    supervisor_id: Optional[UUID] = None
 
 
 class UserUpdate(BaseModel):
     name: Optional[str] = None
     email: Optional[EmailStr] = None
     password: Optional[str] = None
-    role: Optional[str] = None
     is_active: Optional[bool] = None
     avatar_url: Optional[str] = None
-    supervisor_id: Optional[UUID] = None
 
 
 class UserResponse(BaseModel):
@@ -29,8 +26,6 @@ class UserResponse(BaseModel):
     email: str
     role: str
     company_id: Optional[UUID] = None
-    supervisor_id: Optional[UUID] = None
-    supervisor_name: Optional[str] = None
     is_active: bool
     avatar_url: Optional[str] = None
     last_login: Optional[datetime] = None

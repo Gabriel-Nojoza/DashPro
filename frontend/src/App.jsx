@@ -20,6 +20,8 @@ import Compras from '@/pages/construcao/Compras'
 import Financeiro from '@/pages/construcao/Financeiro'
 import Companies from '@/pages/super-admin/Companies'
 import Plans from '@/pages/super-admin/Plans'
+import Veiculos from '@/pages/automoveis/Veiculos'
+import FinanceiroAuto from '@/pages/automoveis/FinanceiroAuto'
 
 function getDefaultRoute(user) {
   if (!user) return '/login'
@@ -52,6 +54,10 @@ function AppRoutes() {
       <Route path="/users" element={<ProtectedRoute roles={['super_admin','company_admin']}><Users /></ProtectedRoute>} />
       <Route path="/minha-equipe" element={<ProtectedRoute roles={['company_admin','supervisor']}><MinhaEquipe /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute roles={['super_admin','company_admin']}><Settings /></ProtectedRoute>} />
+
+      {/* Loja de Carros */}
+      <Route path="/veiculos" element={<ProtectedRoute roles={['company_admin']}><Veiculos /></ProtectedRoute>} />
+      <Route path="/financeiro-auto" element={<ProtectedRoute roles={['company_admin']}><FinanceiroAuto /></ProtectedRoute>} />
 
       {/* Construção Civil */}
       <Route path="/equipe-obra" element={<ProtectedRoute roles={['company_admin','supervisor']}><EquipeObra /></ProtectedRoute>} />

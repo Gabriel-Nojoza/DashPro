@@ -67,13 +67,25 @@ def _pdf_bot_unreachable(message: str, error: Optional[str] = None) -> dict:
     return payload
 
 
+def _get_bot_headers() -> dict:
+    key = (settings.PDF_BAILEYS_BOT_API_KEY or "").strip()
+    if key:
+        return {"x-api-key": key}
+    return {}
+
+
 def _pdf_bot_get(path: str, params: Optional[dict] = None, timeout: int = 5) -> dict:
     base_url = _get_pdf_bot_base_url()
     if not base_url:
         return _pdf_bot_unreachable("URL do bot PDF nao configurada")
 
     try:
-        response = requests.get(urljoin(base_url.rstrip('/') + '/', path.lstrip('/')), params=params, timeout=timeout)
+        response = requests.get(
+            urljoin(base_url.rstrip('/') + '/', path.lstrip('/')),
+            params=params,
+            headers=_get_bot_headers(),
+            timeout=timeout,
+        )
         response.raise_for_status()
         data = response.json() if response.content else {}
         return {
@@ -93,6 +105,7 @@ def _pdf_bot_post(path: str, payload: dict, timeout: int = 10) -> dict:
         response = requests.post(
             urljoin(base_url.rstrip('/') + '/', path.lstrip('/')),
             json=payload,
+            headers=_get_bot_headers(),
             timeout=timeout,
         )
         response.raise_for_status()
@@ -256,6 +269,13 @@ def get_pdf_bot_contacts(search: Optional[str] = None, timeout: int = 5) -> dict
         "count": len(items),
         "items": items,
     }
+
+
+def reconnect_pdf_bot(timeout: int = 10) -> dict:
+    response = _pdf_bot_post("/reconnect", {}, timeout=timeout)
+    if not response["reachable"]:
+        return {**response}
+    return {"reachable": True, "message": response.get("data", {}).get("message", "Reconexao iniciada")}
 
 
 def send_pdf_bot_message(target: str, message: str, timeout: int = 10) -> bool:

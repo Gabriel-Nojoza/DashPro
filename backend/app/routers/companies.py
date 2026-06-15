@@ -144,8 +144,14 @@ async def update_company(
     if not company:
         raise HTTPException(status_code=404, detail="Empresa não encontrada")
 
-    for field, value in payload.model_dump(exclude_unset=True).items():
+    data = payload.model_dump(exclude_unset=True)
+    features = data.pop("features", None)
+    for field, value in data.items():
         setattr(company, field, value)
+    if features is not None:
+        current_settings = dict(company.settings or {})
+        current_settings["features"] = features
+        company.settings = current_settings
 
     await db.commit()
     await db.refresh(company)

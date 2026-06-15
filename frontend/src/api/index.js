@@ -11,6 +11,7 @@ export const authAPI = {
 export const dashboardAPI = {
   get: () => api.get('/dashboard'),
   getSuperAdmin: () => api.get('/dashboard/super-admin'),
+  getAutomoveis: () => api.get('/dashboard/automoveis'),
 }
 
 // Clients
@@ -176,6 +177,25 @@ export const obrasAPI = {
   createEtapa: (obraId, data) => api.post(`/obras/${obraId}/etapas`, data),
   updateEtapa: (obraId, etapaId, data) => api.put(`/obras/${obraId}/etapas/${etapaId}`, data),
   deleteEtapa: (obraId, etapaId) => api.delete(`/obras/${obraId}/etapas/${etapaId}`),
+}
+
+// Financeiro Auto (Loja de Carros)
+export const gastosAutoAPI = {
+  list: (params) => api.get('/gastos-auto', { params }),
+  create: (data) => api.post('/gastos-auto', data),
+  update: (id, data) => api.put(`/gastos-auto/${id}`, data),
+  delete: (id) => api.delete(`/gastos-auto/${id}`),
+}
+
+// Veículos (Loja de Carros)
+export const veiculosAPI = {
+  list: (params) => api.get('/veiculos', { params }),
+  get: (id) => api.get(`/veiculos/${id}`),
+  create: (data) => api.post('/veiculos', data),
+  update: (id, data) => api.put(`/veiculos/${id}`, data),
+  delete: (id) => api.delete(`/veiculos/${id}`),
+  uploadFoto: (id, formData) => api.post(`/veiculos/${id}/fotos`, formData, { headers: { 'Content-Type': 'multipart/form-data' } }),
+  deleteFoto: (id, index) => api.delete(`/veiculos/${id}/fotos/${index}`),
 }
 
 // Plans

@@ -191,7 +191,8 @@ export default function Companies() {
   const [deleting, setDeleting] = useState(false)
 
   const perPage = 15
-  const { register, handleSubmit, reset } = useForm()
+  const { register, handleSubmit, reset, watch } = useForm()
+  const watchedRamo = watch('ramo')
 
   const loadUsage = () => {
     whatsappAPI.getAllUsage()
@@ -225,24 +226,43 @@ export default function Companies() {
 
   const openEdit = (c) => {
     setEditCompany(c)
-    reset(c)
+    reset({
+      name: c.name,
+      email: c.email,
+      ramo: c.ramo || 'comercio',
+      status: c.status,
+      'features.whatsapp': c.features?.whatsapp ?? false,
+      'features.relatorios': c.features?.relatorios ?? false,
+    })
     setModalOpen(true)
   }
 
   const openNew = () => {
     setEditCompany(null)
-    reset({})
+    reset({ ramo: 'comercio' })
     setModalOpen(true)
   }
 
-  const handleSave = async (values) => {
+  const handleSave = async (formValues) => {
     setSaving(true)
     try {
+      const payload = {
+        name: formValues.name,
+        email: formValues.email,
+        ramo: formValues.ramo,
+      }
+      if (editCompany) payload.status = formValues.status
+      if (formValues.ramo === 'automoveis') {
+        payload.features = {
+          whatsapp: !!(formValues.features?.whatsapp),
+          relatorios: !!(formValues.features?.relatorios),
+        }
+      }
       if (editCompany) {
-        await companiesAPI.update(editCompany.id, values)
+        await companiesAPI.update(editCompany.id, payload)
         toast.success('Empresa atualizada!')
       } else {
-        await companiesAPI.create(values)
+        await companiesAPI.create(payload)
         toast.success('Empresa criada!')
       }
       setModalOpen(false)
@@ -465,34 +485,13 @@ export default function Companies() {
               <input {...register('email', { required: true })} type="email" className="input" />
             </div>
             <div>
-              <label className="label">Telefone</label>
-              <input {...register('phone')} className="input" />
-            </div>
-            <div>
-              <label className="label">CNPJ</label>
-              <input {...register('cnpj')} className="input" />
-            </div>
-            <div>
               <label className="label">Ramo *</label>
               <select {...register('ramo')} className="input">
                 <option value="comercio">Comércio</option>
                 <option value="construcao">Construção Civil</option>
                 <option value="servicos">Serviços</option>
+                <option value="automoveis">Loja de Carros</option>
               </select>
-            </div>
-            <div>
-              <label className="label">Plano</label>
-              <select {...register('plan')} className="input">
-                <option value="trial">Trial (período de teste)</option>
-                {plans.map(p => (
-                  <option key={p.slug} value={p.slug}>
-                    {p.name} — {p.price_monthly == 0 ? 'Grátis' : `${fmt(p.price_monthly)}/mês`}
-                  </option>
-                ))}
-              </select>
-              {plans.length === 0 && (
-                <p className="text-xs text-text-muted mt-1">Nenhum plano cadastrado ainda.</p>
-              )}
             </div>
             {editCompany && (
               <div>
@@ -506,6 +505,19 @@ export default function Companies() {
               </div>
             )}
           </div>
+          {watchedRamo === 'automoveis' && (
+            <div className="border border-amber-200 bg-amber-50 rounded-xl p-4 space-y-3">
+              <p className="text-xs font-bold text-amber-700 uppercase tracking-wider">Módulos opcionais — Loja de Carros</p>
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" {...register('features.whatsapp')} className="w-4 h-4 rounded accent-brand-orange" />
+                <span className="text-sm font-medium text-navy-900">WhatsApp (envio de mensagens)</span>
+              </label>
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" {...register('features.relatorios')} className="w-4 h-4 rounded accent-brand-orange" />
+                <span className="text-sm font-medium text-navy-900">Relatórios</span>
+              </label>
+            </div>
+          )}
           <div className="flex justify-end pt-2 border-t border-gray-100">
             <button type="submit" disabled={saving} className="btn-primary">{saving ? 'Salvando...' : 'Salvar'}</button>
           </div>

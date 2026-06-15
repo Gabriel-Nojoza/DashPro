@@ -11,11 +11,13 @@ from app.schemas.auth import LoginRequest, TokenResponse, UserTokenData, ChangeP
 from app.auth.security import verify_password, hash_password, create_access_token
 from app.dependencies import get_current_active_user
 from app.config import settings
+from app.limiter import limiter
 
 router = APIRouter(prefix="/auth", tags=["Autenticação"])
 
 
 @router.post("/login", response_model=TokenResponse)
+@limiter.limit("5/minute")
 async def login(payload: LoginRequest, request: Request, db: AsyncSession = Depends(get_db)):
     result = await db.execute(
         select(User)
@@ -59,9 +61,11 @@ async def login(payload: LoginRequest, request: Request, db: AsyncSession = Depe
 
     company_name = None
     company_ramo = "comercio"
+    company_features = None
     if user.company:
         company_name = user.company.name
         company_ramo = user.company.ramo or "comercio"
+        company_features = (user.company.settings or {}).get("features")
 
     return TokenResponse(
         access_token=access_token,
@@ -74,6 +78,7 @@ async def login(payload: LoginRequest, request: Request, db: AsyncSession = Depe
             company_id=user.company_id,
             company_name=company_name,
             company_ramo=company_ramo,
+            company_features=company_features,
         ),
     )
 
@@ -86,12 +91,14 @@ async def get_me(
     from app.models.company import Company
     company_name = None
     company_ramo = "comercio"
+    company_features = None
     if current_user.company_id:
         result = await db.execute(select(Company).where(Company.id == current_user.company_id))
         company = result.scalar_one_or_none()
         if company:
             company_name = company.name
             company_ramo = company.ramo or "comercio"
+            company_features = (company.settings or {}).get("features")
     return UserTokenData(
         id=current_user.id,
         name=current_user.name,
@@ -100,6 +107,7 @@ async def get_me(
         company_id=current_user.company_id,
         company_name=company_name,
         company_ramo=company_ramo,
+        company_features=company_features,
     )
 
 

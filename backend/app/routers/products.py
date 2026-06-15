@@ -9,6 +9,7 @@ from app.models.product import Product
 from app.models.user import User
 from app.schemas.product import ProductCreate, ProductUpdate, ProductResponse, ProductListResponse
 from app.dependencies import get_current_active_user, require_company_admin
+from app.services.plan_limits import check_product_limit
 
 router = APIRouter(prefix="/products", tags=["Produtos"])
 
@@ -65,6 +66,8 @@ async def create_product(
 ):
     if not current_user.company_id:
         raise HTTPException(status_code=400, detail="Empresa não identificada")
+
+    await check_product_limit(current_user.company_id, db)
 
     product = Product(**payload.model_dump(), company_id=current_user.company_id)
     db.add(product)
