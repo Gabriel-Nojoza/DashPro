@@ -1,0 +1,10 @@
+{
+  "name": "dashpro",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently --names \"BACKEND,FRONTEND,BOT\" -c \"blue,green,yellow\" \"cd backend && venv\\\\Scripts\\\\uvicorn.exe app.main:app --reload --host 0.0.0.0 --port 8000\" \"npm run dev --prefix frontend\" \"npm start --prefix bot-pdf-baileys\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
