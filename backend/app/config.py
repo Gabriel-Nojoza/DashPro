@@ -39,6 +39,7 @@ class Settings(BaseSettings):
     @classmethod
     def normalize_database_url(cls, value):
         if isinstance(value, str):
+            value = value.strip()
             if _is_placeholder(value):
                 return LOCAL_SQLITE_URL
             if value.startswith("postgresql+asyncpg://"):
