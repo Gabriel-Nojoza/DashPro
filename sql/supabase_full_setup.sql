@@ -1,4 +1,10 @@
 -- ============================================================
+-- DashPro Business - Setup completo Supabase
+-- Execute este arquivo inteiro no SQL Editor do Supabase.
+-- Inclui schema, storage, policies, dados iniciais e login do dono.
+-- ============================================================
+
+-- ============================================================
 -- DashPro Business — Schema SQL completo
 -- Compatível com Supabase (PostgreSQL 15+)
 -- Execute este script no SQL Editor do Supabase
@@ -350,3 +356,75 @@ INSERT INTO plans (name, slug, price_monthly, max_users, max_clients, max_produc
     ('Professional', 'professional', 99.90,  15,   1000, 1000, TRUE,  TRUE,  TRUE,  '["Tudo do Starter","API","15 usuários","1000 clientes","Relatórios avançados"]'),
     ('Enterprise',   'enterprise',   249.90, 9999, 9999, 9999, TRUE,  TRUE,  TRUE,  '["Tudo ilimitado","Suporte prioritário","SLA garantido"]')
 ON CONFLICT (slug) DO NOTHING;
+
+
+-- ============================================================
+-- Supabase Storage - buckets usados pelo DashPro
+-- Execute no SQL Editor do Supabase junto com o setup principal.
+-- ============================================================
+
+INSERT INTO storage.buckets (
+    id,
+    name,
+    public,
+    file_size_limit,
+    allowed_mime_types
+) VALUES
+    (
+        'veiculos',
+        'veiculos',
+        TRUE,
+        10485760,
+        ARRAY['image/jpeg', 'image/png', 'image/webp']
+    ),
+    (
+        'dashpro-docs',
+        'dashpro-docs',
+        FALSE,
+        52428800,
+        NULL
+    )
+ON CONFLICT (id) DO UPDATE SET
+    name = EXCLUDED.name,
+    public = EXCLUDED.public,
+    file_size_limit = EXCLUDED.file_size_limit,
+    allowed_mime_types = EXCLUDED.allowed_mime_types;
+
+DROP POLICY IF EXISTS "Public read vehicle photos" ON storage.objects;
+
+CREATE POLICY "Public read vehicle photos"
+ON storage.objects
+FOR SELECT
+TO public
+USING (bucket_id = 'veiculos');
+
+
+-- ============================================================
+-- LOGIN DO DONO DO SISTEMA
+-- ============================================================
+
+-- Cria ou atualiza o login do dono do sistema (super_admin).
+-- Troque email, nome e senha antes de executar no SQL Editor do Supabase.
+
+INSERT INTO users (
+    name,
+    email,
+    hashed_password,
+    role,
+    company_id,
+    is_active
+) VALUES (
+    'Dono do Sistema',
+    'admin@dashpro.com',
+    crypt('Admin@123', gen_salt('bf')),
+    'super_admin',
+    NULL,
+    TRUE
+)
+ON CONFLICT (email) DO UPDATE SET
+    name = EXCLUDED.name,
+    hashed_password = EXCLUDED.hashed_password,
+    role = 'super_admin',
+    company_id = NULL,
+    is_active = TRUE,
+    updated_at = NOW();

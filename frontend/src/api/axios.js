@@ -20,10 +20,15 @@ api.interceptors.response.use(
       localStorage.removeItem('user')
       window.location.href = '/login'
     } else if (error.response?.status === 403) {
-      // Suppress toast for background/config calls that may fail due to role mismatch
+      // Suppress read-only/background calls that may fail due to role mismatch.
       const url = error.config?.url || ''
-      const silent = error.config?.silent403 || url.includes('/companies?') || url.includes('/report-permissions')
-      if (!silent) toast.error('Sem permissão para esta ação')
+      const method = (error.config?.method || 'get').toLowerCase()
+      const silent =
+        method === 'get' ||
+        error.config?.silent403 ||
+        url.includes('/companies?') ||
+        url.includes('/report-permissions')
+      if (!silent) toast.error('Sem permissao para esta acao')
     } else if (error.response?.status >= 500) {
       toast.error('Erro interno do servidor')
     }

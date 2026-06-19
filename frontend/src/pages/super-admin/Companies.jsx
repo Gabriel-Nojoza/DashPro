@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { Plus, Building2, Pencil, Trash2, RefreshCw, Search, Zap, MessageSquare, Loader2, Users } from 'lucide-react'
 
-const roleLabels = { company_admin: 'Gerente', supervisor: 'Supervisor', employee: 'Funcionário', super_admin: 'Super Admin' }
+const roleLabels = { company_admin: 'Cliente', supervisor: 'Supervisor', employee: 'Funcionário', super_admin: 'Super Admin' }
 const roleBadge = { company_admin: 'bg-navy-800/10 text-navy-800', supervisor: 'bg-blue-100 text-blue-700', employee: 'bg-gray-100 text-gray-600' }
 const roleOrder = { company_admin: 0, supervisor: 1, employee: 2, super_admin: 3 }
 

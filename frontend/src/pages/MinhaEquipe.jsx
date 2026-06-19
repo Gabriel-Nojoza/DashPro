@@ -11,7 +11,7 @@ const roleBadge = {
   employee: 'bg-gray-100 text-gray-600',
 }
 const roleLabel = {
-  company_admin: 'Gerente',
+  company_admin: 'Cliente',
   supervisor: 'Supervisor',
   employee: 'Funcionário',
 }

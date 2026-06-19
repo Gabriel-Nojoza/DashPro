@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: dashpro-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: APP_NAME
+        value: DashPro Business
+      - key: APP_VERSION
+        value: 1.0.0
+      - key: DEBUG
+        value: "false"
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "60"
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
+      - key: PDF_BAILEYS_BOT_URL
+        sync: false
+
+  - type: web
+    name: dashpro-bot
+    runtime: node
+    rootDir: bot-pdf-baileys
+    buildCommand: npm ci
+    startCommand: npm start
+    autoDeploy: true

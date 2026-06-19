@@ -1,6 +1,13 @@
 import { Bell, Search } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
 
+const roleLabel = {
+  company_admin: 'Cliente',
+  supervisor: 'Supervisor',
+  employee: 'Funcionario',
+  super_admin: 'Admin',
+}
+
 export default function Header({ title }) {
   const { user } = useAuth()
 
@@ -29,7 +36,7 @@ export default function Header({ title }) {
           </div>
           <div className="hidden sm:block">
             <p className="text-xs font-semibold text-navy-900 leading-tight">{user?.name}</p>
-            <p className="text-xs text-text-muted capitalize leading-tight">{user?.role?.replace('_', ' ')}</p>
+            <p className="text-xs text-text-muted leading-tight">{roleLabel[user?.role] || 'Cliente'}</p>
           </div>
         </div>
       </div>
