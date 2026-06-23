@@ -27,6 +27,15 @@ def _slugify(text: str) -> str:
     return text[:50]
 
 
+async def _get_company_admin(db: AsyncSession, company_id: UUID) -> Optional[User]:
+    result = await db.execute(
+        select(User)
+        .where(User.company_id == company_id, User.role == "company_admin")
+        .order_by(User.created_at)
+    )
+    return result.scalars().first()
+
+
 @router.get("", response_model=CompanyListResponse)
 async def list_companies(
     page: int = Query(1, ge=1),
@@ -64,6 +73,10 @@ async def create_company(
     current_user: User = Depends(require_super_admin),
     db: AsyncSession = Depends(get_db),
 ):
+    existing_user = (await db.execute(select(User).where(User.email == payload.email))).scalar_one_or_none()
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Email jÃ¡ cadastrado para usuÃ¡rio")
+
     slug = _slugify(payload.name)
     existing_slug = (await db.execute(select(Company).where(Company.slug == slug))).scalar_one_or_none()
     if existing_slug:
@@ -77,8 +90,19 @@ async def create_company(
         cnpj=payload.cnpj,
         address=payload.address,
         plan=payload.plan,
+        ramo=payload.ramo,
     )
     db.add(company)
+    await db.flush()
+
+    admin_user = User(
+        name=payload.name,
+        email=payload.email,
+        hashed_password=hash_password(payload.password),
+        role="company_admin",
+        company_id=company.id,
+    )
+    db.add(admin_user)
     await db.commit()
     await db.refresh(company)
     return CompanyResponse.model_validate(company)
@@ -146,12 +170,40 @@ async def update_company(
 
     data = payload.model_dump(exclude_unset=True)
     features = data.pop("features", None)
+    password = data.pop("password", None)
+    new_email = data.get("email")
+
+    admin_user = await _get_company_admin(db, company_id)
+    if new_email:
+        existing_query = select(User).where(User.email == new_email)
+        if admin_user:
+            existing_query = existing_query.where(User.id != admin_user.id)
+        existing_user = (await db.execute(existing_query)).scalar_one_or_none()
+        if existing_user:
+            raise HTTPException(status_code=400, detail="Email jÃ¡ cadastrado para usuÃ¡rio")
+
     for field, value in data.items():
         setattr(company, field, value)
     if features is not None:
         current_settings = dict(company.settings or {})
         current_settings["features"] = features
         company.settings = current_settings
+    if admin_user:
+        if "name" in data:
+            admin_user.name = data["name"]
+        if new_email:
+            admin_user.email = new_email
+        if password:
+            admin_user.hashed_password = hash_password(password)
+    elif password:
+        admin_user = User(
+            name=company.name,
+            email=company.email,
+            hashed_password=hash_password(password),
+            role="company_admin",
+            company_id=company.id,
+        )
+        db.add(admin_user)
 
     await db.commit()
     await db.refresh(company)

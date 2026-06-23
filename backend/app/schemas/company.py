@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, model_validator
+from pydantic import BaseModel, EmailStr, Field, model_validator
 from typing import Optional
 from uuid import UUID
 from datetime import datetime
@@ -7,6 +7,7 @@ from datetime import datetime
 class CompanyCreate(BaseModel):
     name: str
     email: EmailStr
+    password: str = Field(..., min_length=6)
     phone: Optional[str] = None
     cnpj: Optional[str] = None
     address: Optional[str] = None
@@ -17,6 +18,7 @@ class CompanyCreate(BaseModel):
 class CompanyUpdate(BaseModel):
     name: Optional[str] = None
     email: Optional[EmailStr] = None
+    password: Optional[str] = Field(default=None, min_length=6)
     phone: Optional[str] = None
     cnpj: Optional[str] = None
     address: Optional[str] = None

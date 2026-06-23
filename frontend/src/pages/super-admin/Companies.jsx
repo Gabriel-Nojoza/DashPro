@@ -191,7 +191,7 @@ export default function Companies() {
   const [deleting, setDeleting] = useState(false)
 
   const perPage = 15
-  const { register, handleSubmit, reset, watch } = useForm()
+  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm()
   const watchedRamo = watch('ramo')
 
   const loadUsage = () => {
@@ -229,6 +229,7 @@ export default function Companies() {
     reset({
       name: c.name,
       email: c.email,
+      password: '',
       ramo: c.ramo || 'comercio',
       status: c.status,
       'features.whatsapp': c.features?.whatsapp ?? false,
@@ -239,7 +240,7 @@ export default function Companies() {
 
   const openNew = () => {
     setEditCompany(null)
-    reset({ ramo: 'comercio' })
+    reset({ ramo: 'comercio', password: '' })
     setModalOpen(true)
   }
 
@@ -250,6 +251,9 @@ export default function Companies() {
         name: formValues.name,
         email: formValues.email,
         ramo: formValues.ramo,
+      }
+      if (!editCompany || formValues.password?.trim()) {
+        payload.password = formValues.password
       }
       if (editCompany) payload.status = formValues.status
       if (formValues.ramo === 'automoveis') {
@@ -504,6 +508,22 @@ export default function Companies() {
                 </select>
               </div>
             )}
+            <div className={editCompany ? '' : 'col-span-2'}>
+              <label className="label">{editCompany ? 'Nova senha' : 'Senha *'}</label>
+              <input
+                {...register('password', {
+                  validate: (value) => {
+                    if (editCompany && !value) return true
+                    return value?.length >= 6 || 'Informe ao menos 6 caracteres'
+                  },
+                })}
+                type="password"
+                className="input"
+                placeholder={editCompany ? 'Deixe vazio para nao alterar' : 'Minimo 6 caracteres'}
+                autoComplete="new-password"
+              />
+              {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
+            </div>
           </div>
           {watchedRamo === 'automoveis' && (
             <div className="border border-amber-200 bg-amber-50 rounded-xl p-4 space-y-3">
